@@ -6,7 +6,7 @@ meta:
   version: 1
 inputs:
 - kind: datapackage
-  url: https://raw.githubusercontent.com/anuveyatsu/historical-income-households-us/master/.datahub/datapackage.json
+  url: https://raw.githubusercontent.com/anuveyatsu/historical-income-households-us/master/datapackage.json
   parameters:
     resource-mapping: {}
     descriptor:

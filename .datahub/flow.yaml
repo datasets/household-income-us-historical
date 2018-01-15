@@ -1,0 +1,68 @@
+meta:
+  dataset: historical-income-households-us
+  findability: unlisted
+  owner: anuveyatsu
+  ownerid: 90998f7f90e086bd5fc7c9075dfda43b
+  version: 1
+inputs:
+- kind: datapackage
+  url: https://raw.githubusercontent.com/datasets/finance-vix/master/.datahub/datapackage.json
+  parameters:
+    resource-mapping:
+      historical-income-households-us: https://www2.census.gov/programs-surveys/cps/tables/time-series/historical-income-households/h01ar.xls
+    descriptor:
+      name: historical-income-households-us
+      title: Income Limits for Each Fifth and Top 5 Percent of All Households:  1967 to 2016
+      description: Households as of March of the following year. Income in current and 2016 CPI-U-RS adjusted dollars.
+      sources:
+        -
+          path: https://www2.census.gov
+          title: United States Census Bureau
+      resources:
+        -
+          name: historical-income-households-us
+          path: data/historical-income-households-us.csv
+          format: csv
+          mediatype: text/csv
+          schema:
+            fields:
+              -
+                name: Year
+                type: string
+              -
+                name: Number (thousands)
+                type: number
+              -
+                name: Lowest
+                type: number
+                description: Upper limit of each fifth (dollars)
+              -
+                name: Second
+                type: number
+                description: Upper limit of each fifth (dollars)
+              -
+                name: Third
+                type: number
+                description: Upper limit of each fifth (dollars)
+              -
+                name: Fourth
+                type: number
+                description: Upper limit of each fifth (dollars)
+              -
+                name: Top 5 percent
+                type: number
+                description: Lower limit of top 5 percent (dollars)
+processing:
+  -
+    input: historical-income-households-us
+    tabulator:
+      skip_rows: 6
+      headers:
+        - Year
+        - Number (thousands)
+        - Lowest
+        - Second
+        - Third
+        - Fourth
+        - Top 5 percent
+    output: historical-income-households-us

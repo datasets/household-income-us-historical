@@ -1,0 +1,57 @@
+{
+  "name": "historical-income-households-us",
+  "title": "Income Limits for Each Fifth and Top 5 Percent of All Households:  1967 to 2016",
+  "description": "Households as of March of the following year. Income in current and 2016 CPI-U-RS adjusted dollars.",
+  "sources": [
+    {
+      "path": "https://www2.census.gov",
+      "title": "United States Census Bureau"
+    }
+  ],
+  "resources": [
+    {
+      "name": "historical-income-households-us",
+      "path": "data/historical-income-households-us.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "Current dollars",
+      "schema": {
+        "fields": [
+          {
+            "name": "Year",
+            "type": "string"
+          },
+          {
+            "name": "Number (thousands)",
+            "type": "number"
+          },
+          {
+            "name": "Lowest",
+            "type": "number",
+            "description": "Upper limit of each fifth (dollars)"
+          },
+          {
+            "name": "Second",
+            "type": "number",
+            "description": "Upper limit of each fifth (dollars)"
+          },
+          {
+            "name": "Third",
+            "type": "number",
+            "description": "Upper limit of each fifth (dollars)"
+          },
+          {
+            "name": "Fourth",
+            "type": "number",
+            "description": "Upper limit of each fifth (dollars)"
+          },
+          {
+            "name": "Top 5 percent",
+            "type": "number",
+            "description": "Lower limit of top 5 percent (dollars)"
+          }
+        ]
+      }
+    }
+  ]
+}

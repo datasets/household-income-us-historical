@@ -11,9 +11,8 @@
   "resources": [
     {
       "name": "historical-income-households-us",
-      "path": "data/historical-income-households-us.csv",
-      "format": "csv",
-      "mediatype": "text/csv",
+      "path": "https://www2.census.gov/programs-surveys/cps/tables/time-series/historical-income-households/h01ar.xls",
+      "format": "xls",
       "description": "Current dollars",
       "schema": {
         "fields": [
@@ -42,7 +41,7 @@
           },
           {
             "name": "Fourth",
-            "type": "number",
+            "type": "string",
             "description": "Upper limit of each fifth (dollars)"
           },
           {
@@ -53,5 +52,6 @@
         ]
       }
     }
-  ]
+  ],
+  "readme": "U.S. Census Bureau, Current Population Survey, Annual Social and Economic Supplements. For information on confidentiality protection, sampling error, nonsampling error, and definitions, see //www2.census.gov/programs-surveys/cps/techdocs/cpsmar17.pdf"
 }

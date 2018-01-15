@@ -6,10 +6,9 @@ meta:
   version: 1
 inputs:
 - kind: datapackage
-  url: https://raw.githubusercontent.com/datasets/finance-vix/master/.datahub/datapackage.json
+  url: https://raw.githubusercontent.com/anuveyatsu/historical-income-households-us/master/.datahub/datapackage.json
   parameters:
-    resource-mapping:
-      historical-income-households-us: https://www2.census.gov/programs-surveys/cps/tables/time-series/historical-income-households/h01ar.xls
+    resource-mapping: {}
     descriptor:
       name: historical-income-households-us
       title: Income Limits for Each Fifth and Top 5 Percent of All Households:  1967 to 2016
@@ -21,42 +20,15 @@ inputs:
       resources:
         -
           name: historical-income-households-us
-          path: data/historical-income-households-us.csv
-          format: csv
-          mediatype: text/csv
-          schema:
-            fields:
-              -
-                name: Year
-                type: string
-              -
-                name: Number (thousands)
-                type: number
-              -
-                name: Lowest
-                type: number
-                description: Upper limit of each fifth (dollars)
-              -
-                name: Second
-                type: number
-                description: Upper limit of each fifth (dollars)
-              -
-                name: Third
-                type: number
-                description: Upper limit of each fifth (dollars)
-              -
-                name: Fourth
-                type: number
-                description: Upper limit of each fifth (dollars)
-              -
-                name: Top 5 percent
-                type: number
-                description: Lower limit of top 5 percent (dollars)
+          pathType: remote
+          path: https://www2.census.gov/programs-surveys/cps/tables/time-series/historical-income-households/h01ar.xls
+          format: xls
 processing:
   -
     input: historical-income-households-us
     tabulator:
-      skip_rows: 6
+      sheet: 1
+      skip_rows: [1,2,3,4,5,6,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112]
       headers:
         - Year
         - Number (thousands)
@@ -65,4 +37,74 @@ processing:
         - Third
         - Fourth
         - Top 5 percent
-    output: historical-income-households-us
+    schema:
+      fields:
+        -
+          name: Year
+          type: string
+        -
+          name: Number (thousands)
+          type: number
+        -
+          name: Lowest
+          type: number
+          description: Upper limit of each fifth (dollars)
+        -
+          name: Second
+          type: number
+          description: Upper limit of each fifth (dollars)
+        -
+          name: Third
+          type: number
+          description: Upper limit of each fifth (dollars)
+        -
+          name: Fourth
+          type: string
+          description: Upper limit of each fifth (dollars)
+        -
+          name: Top 5 percent
+          type: number
+          description: Lower limit of top 5 percent (dollars)
+    output: current-dollars
+  -
+    input: historical-income-households-us
+    tabulator:
+      sheet: 1
+      skip_rows: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,112]
+      headers:
+        - Year
+        - Number (thousands)
+        - Lowest
+        - Second
+        - Third
+        - Fourth
+        - Top 5 percent
+    schema:
+      fields:
+        -
+          name: Year
+          type: string
+        -
+          name: Number (thousands)
+          type: number
+        -
+          name: Lowest
+          type: number
+          description: Upper limit of each fifth (dollars)
+        -
+          name: Second
+          type: number
+          description: Upper limit of each fifth (dollars)
+        -
+          name: Third
+          type: number
+          description: Upper limit of each fifth (dollars)
+        -
+          name: Fourth
+          type: string
+          description: Upper limit of each fifth (dollars)
+        -
+          name: Top 5 percent
+          type: number
+          description: Lower limit of top 5 percent (dollars)
+    output: 2016-dollars

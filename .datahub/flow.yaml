@@ -38,6 +38,17 @@ processing:
         - Fourth
         - Top 5 percent
     output: current-dollars
+    dpp:
+      - run: find_replace
+        parameters:
+          resources: historical-income-households-us
+          fields:
+            -
+              name: Year
+              patterns:
+                -
+                  find: (\(\d+\))
+                  replace: ''
   -
     input: historical-income-households-us
     tabulator:
@@ -52,3 +63,14 @@ processing:
         - Fourth
         - Top 5 percent
     output: 2016-dollars
+    dpp:
+      - run: find_replace
+        parameters:
+          resources: historical-income-households-us
+          fields:
+            -
+              name: Year
+              patterns:
+                -
+                  find: (\(\d+\))
+                  replace: ''

@@ -53,5 +53,18 @@
       }
     }
   ],
+  "views": [
+    {
+      "name": "comparison-of-upper-limit-of-each-fifth-and-lower-limit-of-top-5-percent",
+      "title": "Comparison of upper limit of each fifth and lower limit of top 5 percent",
+      "resources": ["historical-income-households-us"],
+      "specType": "simple",
+      "spec": {
+        "type": "line",
+        "group": "Year",
+        "series": ["Lowest", "Second", "Third", "Fourth", "Top 5 percent"]
+      }
+    }
+  ],
   "readme": "U.S. Census Bureau, Current Population Survey, Annual Social and Economic Supplements. For information on confidentiality protection, sampling error, nonsampling error, and definitions, see //www2.census.gov/programs-surveys/cps/techdocs/cpsmar17.pdf"
 }

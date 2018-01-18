@@ -18,35 +18,35 @@
         "fields": [
           {
             "name": "Year",
-            "type": "number"
+            "type": "year"
           },
           {
             "name": "Number (thousands)",
-            "type": "number"
+            "type": "integer"
           },
           {
             "name": "Lowest",
-            "type": "number",
+            "type": "integer",
             "description": "Upper limit of each fifth (dollars)"
           },
           {
             "name": "Second",
-            "type": "number",
+            "type": "integer",
             "description": "Upper limit of each fifth (dollars)"
           },
           {
             "name": "Third",
-            "type": "number",
+            "type": "integer",
             "description": "Upper limit of each fifth (dollars)"
           },
           {
             "name": "Fourth",
-            "type": "number",
+            "type": "integer",
             "description": "Upper limit of each fifth (dollars)"
           },
           {
             "name": "Top 5 percent",
-            "type": "number",
+            "type": "integer",
             "description": "Lower limit of top 5 percent (dollars)"
           }
         ]

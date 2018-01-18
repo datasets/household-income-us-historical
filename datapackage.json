@@ -18,7 +18,7 @@
         "fields": [
           {
             "name": "Year",
-            "type": "string"
+            "type": "number"
           },
           {
             "name": "Number (thousands)",
@@ -41,7 +41,7 @@
           },
           {
             "name": "Fourth",
-            "type": "string",
+            "type": "number",
             "description": "Upper limit of each fifth (dollars)"
           },
           {

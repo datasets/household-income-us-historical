@@ -28,7 +28,7 @@ processing:
     input: historical-income-households-us
     tabulator:
       sheet: 1
-      skip_rows: [1,2,3,4,5,6,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112]
+      skip_rows: [1,2,3,4,5,6,11,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112]
       headers:
         - Year
         - Number (thousands)
@@ -37,35 +37,7 @@ processing:
         - Third
         - Fourth
         - Top 5 percent
-    schema:
-      fields:
-        -
-          name: Year
-          type: year
-        -
-          name: Number (thousands)
-          type: integer
-        -
-          name: Lowest
-          type: integer
-          description: Upper limit of each fifth (dollars)
-        -
-          name: Second
-          type: integer
-          description: Upper limit of each fifth (dollars)
-        -
-          name: Third
-          type: integer
-          description: Upper limit of each fifth (dollars)
-        -
-          name: Fourth
-          type: integer
-          description: Upper limit of each fifth (dollars)
-        -
-          name: Top 5 percent
-          type: integer
-          description: Lower limit of top 5 percent (dollars)
-    output: current-dollars
+    output: historical-income-households-us
     dpp:
       - run: find_replace
         parameters:
@@ -75,8 +47,26 @@ processing:
               name: Year
               patterns:
                 -
-                  find: (\(\d+\))
+                  find: (\s?\(\d+\))|(\.0)
                   replace: ''
+      - run: find_replace
+        parameters:
+          resources: historical-income-households-us
+          fields:
+            -
+              name: Fourth
+              patterns:
+                -
+                  find: \+|,
+                  replace: ''
+      - run: set_types
+        parameters:
+          resources: historical-income-households-us
+          types:
+            Year:
+              type: year
+            "^(?!Y).+":
+              type: number
   -
     input: historical-income-households-us
     tabulator:
@@ -90,43 +80,4 @@ processing:
         - Third
         - Fourth
         - Top 5 percent
-    schema:
-      fields:
-        -
-          name: Year
-          type: year
-        -
-          name: Number (thousands)
-          type: integer
-        -
-          name: Lowest
-          type: integer
-          description: Upper limit of each fifth (dollars)
-        -
-          name: Second
-          type: integer
-          description: Upper limit of each fifth (dollars)
-        -
-          name: Third
-          type: integer
-          description: Upper limit of each fifth (dollars)
-        -
-          name: Fourth
-          type: integer
-          description: Upper limit of each fifth (dollars)
-        -
-          name: Top 5 percent
-          type: integer
-          description: Lower limit of top 5 percent (dollars)
     output: 2016-dollars
-    dpp:
-      - run: find_replace
-        parameters:
-          resources: historical-income-households-us
-          fields:
-            -
-              name: Year
-              patterns:
-                -
-                  find: (\(\d+\))
-                  replace: ''

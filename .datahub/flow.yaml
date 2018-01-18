@@ -37,6 +37,34 @@ processing:
         - Third
         - Fourth
         - Top 5 percent
+    schema:
+      fields:
+        -
+          name: Year
+          type: year
+        -
+          name: Number (thousands)
+          type: integer
+        -
+          name: Lowest
+          type: integer
+          description: Upper limit of each fifth (dollars)
+        -
+          name: Second
+          type: integer
+          description: Upper limit of each fifth (dollars)
+        -
+          name: Third
+          type: integer
+          description: Upper limit of each fifth (dollars)
+        -
+          name: Fourth
+          type: integer
+          description: Upper limit of each fifth (dollars)
+        -
+          name: Top 5 percent
+          type: integer
+          description: Lower limit of top 5 percent (dollars)
     output: current-dollars
     dpp:
       - run: find_replace
@@ -62,6 +90,34 @@ processing:
         - Third
         - Fourth
         - Top 5 percent
+    schema:
+      fields:
+        -
+          name: Year
+          type: year
+        -
+          name: Number (thousands)
+          type: integer
+        -
+          name: Lowest
+          type: integer
+          description: Upper limit of each fifth (dollars)
+        -
+          name: Second
+          type: integer
+          description: Upper limit of each fifth (dollars)
+        -
+          name: Third
+          type: integer
+          description: Upper limit of each fifth (dollars)
+        -
+          name: Fourth
+          type: integer
+          description: Upper limit of each fifth (dollars)
+        -
+          name: Top 5 percent
+          type: integer
+          description: Lower limit of top 5 percent (dollars)
     output: 2016-dollars
     dpp:
       - run: find_replace

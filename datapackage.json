@@ -13,7 +13,7 @@
       "name": "historical-income-households-us",
       "path": "https://www2.census.gov/programs-surveys/cps/tables/time-series/historical-income-households/h01ar.xls",
       "format": "xls",
-      "description": "Current dollars",
+      "description": "2016 dollars",
       "schema": {
         "fields": [
           {
@@ -56,7 +56,7 @@
   "views": [
     {
       "name": "comparison-of-upper-limit-of-each-fifth-and-lower-limit-of-top-5-percent",
-      "title": "Comparison of upper limit of each fifth and lower limit of top 5 percent",
+      "title": "Comparison of upper limit of each fifth and lower limit of top 5 percent (2016 dollars)",
       "resources": ["historical-income-households-us"],
       "specType": "simple",
       "spec": {
@@ -67,7 +67,7 @@
     },
     {
       "name": "lowest-fifth-vs-top-5-percent",
-      "title": "Ratio of lower limit of top 5 percent to upper limit of lowest fifth",
+      "title": "Ratio of lower limit of top 5 percent to upper limit of lowest fifth (2016 dollars)",
       "resources": [
         {
           "name": "historical-income-households-us",

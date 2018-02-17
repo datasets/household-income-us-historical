@@ -1,5 +1,5 @@
 {
-  "name": "historical-income-households-us",
+  "name": "household-income-us-historical",
   "title": "Income Limits for Each Fifth and Top 5 Percent of All Households:  1967 to 2016",
   "description": "Households as of March of the following year. Income in current and 2016 CPI-U-RS adjusted dollars.",
   "sources": [
@@ -10,7 +10,7 @@
   ],
   "resources": [
     {
-      "name": "historical-income-households-us",
+      "name": "household-income-us-historical",
       "path": "https://www2.census.gov/programs-surveys/cps/tables/time-series/historical-income-households/h01ar.xls",
       "format": "xls",
       "description": "2016 dollars",
@@ -57,7 +57,7 @@
     {
       "name": "comparison-of-upper-limit-of-each-fifth-and-lower-limit-of-top-5-percent",
       "title": "Comparison of upper limit of each fifth and lower limit of top 5 percent (2016 dollars)",
-      "resources": ["historical-income-households-us"],
+      "resources": ["household-income-us-historical"],
       "specType": "simple",
       "spec": {
         "type": "line",
@@ -70,7 +70,7 @@
       "title": "Ratio of lower limit of top 5 percent to upper limit of lowest fifth (2016 dollars)",
       "resources": [
         {
-          "name": "historical-income-households-us",
+          "name": "household-income-us-historical",
           "transform": [
             {
               "type": "formula",

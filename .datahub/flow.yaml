@@ -8,7 +8,8 @@ inputs:
 - kind: datapackage
   url: https://raw.githubusercontent.com/datasets/household-income-us-historical/master/datapackage.json
   parameters:
-    resource-mapping: {}
+    resource-mapping:
+      household-income-us-historical: https://www2.census.gov/programs-surveys/cps/tables/time-series/historical-income-households/h01ar.xls
     descriptor:
       name: household-income-us-historical
       title: Income Limits for Each Fifth and Top 5 Percent of All Households:  1967 to 2016
@@ -24,6 +25,34 @@ inputs:
           pathType: remote
           path: https://www2.census.gov/programs-surveys/cps/tables/time-series/historical-income-households/h01ar.xls
           format: xls
+          schema:
+            fields:
+              -
+                name: Year
+                type: any
+              -
+                name: Number (thousands)
+                type: number
+              -
+                name: Lowest
+                type: number
+                description: Upper limit of each fifth (dollars)
+              -
+                name: Second
+                type: number
+                description: Upper limit of each fifth (dollars)
+              -
+                name: Third
+                type: number
+                description: Upper limit of each fifth (dollars)
+              -
+                name: Fourth
+                type: number
+                description: Upper limit of each fifth (dollars)
+              -
+                name: Top 5 percent
+                type: number
+                description: Lower limit of top 5 percent (dollars)
       views:
       - name: comparison-of-upper-limit-of-each-fifth-and-lower-limit-of-top-5-percent
         title: Comparison of upper limit of each fifth and lower limit of top 5 percent (2016 dollars)

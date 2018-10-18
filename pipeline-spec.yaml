@@ -1,0 +1,3 @@
+household-us-flow:
+  pipeline:
+    - flow: household_us_flow

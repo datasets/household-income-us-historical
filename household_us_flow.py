@@ -1,17 +1,13 @@
 import datetime
+import os
 
-from dataflows import Flow, PackageWrapper, ResourceWrapper, validate
-from dataflows import add_metadata, dump_to_path, load, set_type, find_replace, printer
+from dataflows import Flow, validate, update_resource
+from dataflows import add_metadata, dump_to_path, load, set_type, find_replace
 
 
-def rename(package: PackageWrapper):
-    package.pkg.descriptor['resources'][0]['name'] = 'household-income-us-historical'
-    package.pkg.descriptor['resources'][0]['path'] = 'data/household-income-us-historical.csv'
-    yield package.pkg
-    res_iter = iter(package)
-    first: ResourceWrapper = next(res_iter)
-    yield first.it
-    yield from package
+def readme(fpath='README.md'):
+    if os.path.exists(fpath):
+        return open(fpath).read()
 
 
 household_us = Flow(
@@ -25,7 +21,14 @@ household_us = Flow(
               "title": "United States Census Bureau"
             }
         ],
-        licenses="PDDL-1.0",
+        licenses=[
+            {
+              "id": "odc-pddl",
+              "path": "http://opendatacommons.org/licenses/pddl/",
+              "title": "Open Data Commons Public Domain Dedication and License v1.0",
+              'name': "open_data_commons_public_domain_dedication_and_license_v1.0"
+            }
+        ],
         version="0.3.0",
         views=[
             {
@@ -57,15 +60,17 @@ household_us = Flow(
                 "specType": "simple",
                 "spec": {"type": "line","group": "Year","series": ["Ratio"]}
             }
-        ]
+        ],
+        readme=readme()
     ),
     load(
         load_source='https://www2.census.gov/programs-surveys/cps/tables/time-series/historical-income-households/h01ar.xls',
         format='xls',
         sheet= 1,
+        encoding='utf-8'
         # remove first 6 rows. remove rows that contain data from 1967 - last year and 3 rows after. Finaly last row
         skip_rows=[i+1 for i in range(6 + datetime.datetime.now().year - 1966 + 3)] + [-1],
-        headers=['Year', 'Number (thousands)', 'Lowest', 'Second', 'Third', 'Fourth', 'Top 5 percent']
+        headers=['Year', 'Number (thousands)', 'Lowest', 'Second', 'Third', 'Fourth', 'Top 5 percent'],
     ),
     find_replace(fields=[
         {
@@ -79,6 +84,10 @@ household_us = Flow(
             ]
         }
     ], resources='un-countries'),
+    update_resource('un-countries', **{
+        'name': 'household-income-us-historical',
+        'path':'data/household-income-us-historical.csv', 'dpp:streaming': True
+    }),
     set_type('Year', type='year'),
     set_type('Number (thousands)', type='number'),
     set_type('Lowest', type='number'),
@@ -86,11 +95,13 @@ household_us = Flow(
     set_type('Third', type='number'),
     set_type('Fourth', type='number'),
     set_type('Top 5 percent', type='number'),
-    rename,
     validate(),
-    printer(),
     dump_to_path(),
 )
+
+
+def flow(parameters, datapackage, resources, stats):
+    return household_us
 
 
 if __name__ == '__main__':

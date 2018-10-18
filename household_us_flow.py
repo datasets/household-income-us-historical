@@ -83,18 +83,13 @@ household_us = Flow(
                 {'find': '\+|', 'replace': ''}
             ]
         }
-    ], resources='un-countries'),
-    update_resource('un-countries', **{
+    ], resources=0),
+    update_resource(0, **{
         'name': 'household-income-us-historical',
         'path':'data/household-income-us-historical.csv', 'dpp:streaming': True
     }),
     set_type('Year', type='year'),
-    set_type('Number (thousands)', type='number'),
-    set_type('Lowest', type='number'),
-    set_type('Second', type='number'),
-    set_type('Third', type='number'),
-    set_type('Fourth', type='number'),
-    set_type('Top 5 percent', type='number'),
+    set_type('^(?!Y).+', type='number'),
     validate(),
     dump_to_path(),
 )

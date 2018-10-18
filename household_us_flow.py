@@ -67,7 +67,7 @@ household_us = Flow(
         load_source='https://www2.census.gov/programs-surveys/cps/tables/time-series/historical-income-households/h01ar.xls',
         format='xls',
         sheet= 1,
-        encoding='utf-8'
+        encoding='utf-8',
         # remove first 6 rows. remove rows that contain data from 1967 - last year and 3 rows after. Finaly last row
         skip_rows=[i+1 for i in range(6 + datetime.datetime.now().year - 1966 + 3)] + [-1],
         headers=['Year', 'Number (thousands)', 'Lowest', 'Second', 'Third', 'Fourth', 'Top 5 percent'],

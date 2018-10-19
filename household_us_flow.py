@@ -2,7 +2,7 @@ import datetime
 import os
 
 from dataflows import Flow, validate, update_resource
-from dataflows import add_metadata, dump_to_path, load, set_type, find_replace
+from dataflows import add_metadata, load, set_type, find_replace
 
 
 def readme(fpath='README.md'):
@@ -90,8 +90,7 @@ household_us = Flow(
     }),
     set_type('Year', type='year'),
     set_type('^(?!Y).+', type='number'),
-    validate(),
-    dump_to_path(),
+    validate()
 )
 
 

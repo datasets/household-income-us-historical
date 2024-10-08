@@ -22,31 +22,31 @@
           },
           {
             "name": "Number (thousands)",
-            "type": "integer"
+            "type": "number"
           },
           {
             "name": "Lowest",
-            "type": "integer",
+            "type": "number",
             "description": "Upper limit of each fifth (dollars)"
           },
           {
             "name": "Second",
-            "type": "integer",
+            "type": "number",
             "description": "Upper limit of each fifth (dollars)"
           },
           {
             "name": "Third",
-            "type": "integer",
+            "type": "number",
             "description": "Upper limit of each fifth (dollars)"
           },
           {
             "name": "Fourth",
-            "type": "integer",
+            "type": "number",
             "description": "Upper limit of each fifth (dollars)"
           },
           {
             "name": "Top 5 percent",
-            "type": "integer",
+            "type": "number",
             "description": "Lower limit of top 5 percent (dollars)"
           }
         ]

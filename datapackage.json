@@ -57,14 +57,23 @@
     {
       "name": "comparison-of-upper-limit-of-each-fifth-and-lower-limit-of-top-5-percent",
       "title": "Comparison of upper limit of each fifth and lower limit of top 5 percent (2016 dollars)",
-      "resources": ["household-income-us-historical"],
+      "resources": [
+        "household-income-us-historical"
+      ],
       "specType": "simple",
       "spec": {
         "type": "line",
         "group": "Year",
-        "series": ["Lowest", "Second", "Third", "Fourth", "Top 5 percent"]
+        "series": [
+          "Lowest",
+          "Second",
+          "Third",
+          "Fourth",
+          "Top 5 percent"
+        ]
       }
     }
   ],
-  "readme": "Upper limits of incomes for each fifth and lower limit of income for top 5 percent of all housholds from 1967 to 2016.\nThis dataset is acquired from U.S. Census Bureau, Current Population Survey, Annual Social and Economic Supplements. For information on confidentiality protection, sampling error, nonsampling error, and definitions, see //www2.census.gov/programs-surveys/cps/techdocs/cpsmar17.pdf"
+  "readme": "Upper limits of incomes for each fifth and lower limit of income for top 5 percent of all housholds from 1967 to 2016.\nThis dataset is acquired from U.S. Census Bureau, Current Population Survey, Annual Social and Economic Supplements. For information on confidentiality protection, sampling error, nonsampling error, and definitions, see //www2.census.gov/programs-surveys/cps/techdocs/cpsmar17.pdf",
+  "collection": "wealth-income-and-inequality"
 }

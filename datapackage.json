@@ -11,7 +11,10 @@
   "resources": [
     {
       "name": "household-income-us-historical",
-      "path": "https://www2.census.gov/programs-surveys/cps/tables/time-series/historical-income-households/h01ar.xls",
+      "sources": {
+        "path": "https://www2.census.gov/programs-surveys/cps/tables/time-series/historical-income-households/h01ar.xls"
+      },
+      "path": "data/household-income-us-historical.csv",
       "format": "xls",
       "description": "2016 dollars",
       "schema": {

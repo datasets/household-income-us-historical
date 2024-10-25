@@ -1,4 +1,4 @@
-<a href="https://datahub.io/core/household-income-us-historical"><img src="https://badgen.net/badge/icon/View%20on%20datahub.io/orange?icon=https://datahub.io/datahub-cube-badge-icon.svg&label&scale=1.25)" alt="badge" /></a>
+<a className="gh-badge" href="https://datahub.io/core/household-income-us-historical"><img src="https://badgen.net/badge/icon/View%20on%20datahub.io/orange?icon=https://datahub.io/datahub-cube-badge-icon.svg&label&scale=1.25" alt="badge" /></a>
 
 Upper limits of annual incomes for each fifth and lower limit of income for top 5 percent of all housholds from 1967 to last year
 
